@@ -1,2 +1,2 @@
 # Cool School Stuff
-A various collection of functioning, interesting CS projects from school.
+A various collection of CS projects from school that I thought were fun or interesting.
