@@ -1,11 +1,12 @@
 import sys
+import csv
 
 def openFile():
 	if len(sys.argv) != 2:
 		error_message("incorrect num arguments", 1)
 	else:
 		try:
-			file = open(sys.argv[1], 'r')
+			file = open(sys.argv[1], 'r') 
 		except IOError:
 			error_message("file does not exist", 1)
 		return file
@@ -17,3 +18,6 @@ def error_message(message, rc):
 if __name__ == "__main__":
 	# get file and error check
 	file = openFile()
+	csvfile = csv.reader(file, delimiter=',')
+	print csvfile.next()
+	print csvfile.next()
