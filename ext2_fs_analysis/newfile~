@@ -1,0 +1,514 @@
+INVALID BLOCK 100 IN INODE 15 AT OFFSET 0
+INVALID BLOCK 101 IN INODE 15 AT OFFSET 1
+INVALID BLOCK 102 IN INODE 15 AT OFFSET 2
+INVALID BLOCK 103 IN INODE 15 AT OFFSET 3
+INVALID BLOCK 104 IN INODE 15 AT OFFSET 4
+INVALID BLOCK 105 IN INODE 15 AT OFFSET 5
+INVALID BLOCK 106 IN INODE 15 AT OFFSET 6
+INVALID BLOCK 107 IN INODE 15 AT OFFSET 7
+INVALID BLOCK 108 IN INODE 15 AT OFFSET 8
+INVALID BLOCK 109 IN INODE 15 AT OFFSET 9
+INVALID BLOCK 110 IN INODE 15 AT OFFSET 10
+INVALID BLOCK 111 IN INODE 15 AT OFFSET 11
+RESERVED BLOCK 3 IN INODE 2 AT OFFSET 0
+RESERVED BLOCK 7 IN INODE 2 AT OFFSET 1
+BLOCK: 0
+[]
+[]
+[]
+0
+BLOCK: 1
+[]
+[]
+[]
+0
+BLOCK: 2
+[]
+[]
+[]
+0
+BLOCK: 3
+[]
+[]
+[]
+0
+BLOCK: 4
+[]
+[]
+[]
+0
+BLOCK: 5
+[]
+[]
+[]
+0
+BLOCK: 6
+[]
+[]
+[]
+0
+BLOCK: 7
+[]
+[]
+[]
+0
+BLOCK: 8
+[2]
+[0]
+[0]
+1
+BLOCK: 9
+[11]
+[0]
+[0]
+1
+BLOCK: 10
+[11]
+[1]
+[0]
+1
+BLOCK: 11
+[11]
+[2]
+[0]
+1
+BLOCK: 12
+[11]
+[3]
+[0]
+1
+BLOCK: 13
+[11]
+[4]
+[0]
+1
+BLOCK: 14
+[11]
+[5]
+[0]
+1
+BLOCK: 15
+[11]
+[6]
+[0]
+1
+BLOCK: 16
+[11]
+[7]
+[0]
+1
+BLOCK: 17
+[11]
+[8]
+[0]
+1
+BLOCK: 18
+[11]
+[9]
+[0]
+1
+BLOCK: 19
+[11]
+[10]
+[0]
+1
+BLOCK: 20
+[11]
+[11]
+[0]
+1
+BLOCK: 21
+[15]
+[0]
+[0]
+1
+BLOCK: 22
+[16]
+[0]
+[0]
+1
+BLOCK: 23
+[16]
+[1]
+[0]
+1
+BLOCK: 24
+[16]
+[2]
+[0]
+1
+BLOCK: 25
+[16]
+[3]
+[0]
+1
+BLOCK: 26
+[16]
+[4]
+[0]
+1
+BLOCK: 27
+[16]
+[5]
+[0]
+1
+BLOCK: 28
+[16]
+[6]
+[0]
+1
+BLOCK: 29
+[16]
+[7]
+[0]
+1
+BLOCK: 30
+[16]
+[8]
+[0]
+1
+BLOCK: 31
+[16]
+[9]
+[0]
+1
+BLOCK: 32
+[16]
+[10]
+[0]
+1
+BLOCK: 33
+[16]
+[11]
+[0]
+1
+BLOCK: 34
+[]
+[]
+[]
+0
+BLOCK: 35
+[16]
+[12]
+[1]
+1
+BLOCK: 36
+[16]
+[13]
+[1]
+1
+BLOCK: 37
+[]
+[]
+[]
+0
+BLOCK: 38
+[]
+[]
+[]
+0
+BLOCK: 39
+[]
+[]
+[]
+0
+BLOCK: 40
+[]
+[]
+[]
+0
+BLOCK: 41
+[]
+[]
+[]
+0
+BLOCK: 42
+[]
+[]
+[]
+0
+BLOCK: 43
+[]
+[]
+[]
+0
+BLOCK: 44
+[]
+[]
+[]
+0
+BLOCK: 45
+[]
+[]
+[]
+0
+BLOCK: 46
+[]
+[]
+[]
+0
+BLOCK: 47
+[]
+[]
+[]
+0
+BLOCK: 48
+[]
+[]
+[]
+0
+BLOCK: 49
+[]
+[]
+[]
+0
+BLOCK: 50
+[]
+[]
+[]
+0
+BLOCK: 51
+[]
+[]
+[]
+0
+BLOCK: 52
+[]
+[]
+[]
+0
+BLOCK: 53
+[]
+[]
+[]
+0
+BLOCK: 54
+[]
+[]
+[]
+0
+BLOCK: 55
+[]
+[]
+[]
+0
+BLOCK: 56
+[]
+[]
+[]
+0
+BLOCK: 57
+[]
+[]
+[]
+0
+BLOCK: 58
+[]
+[]
+[]
+0
+BLOCK: 59
+[]
+[]
+[]
+0
+BLOCK: 60
+[]
+[]
+[]
+0
+BLOCK: 61
+[]
+[]
+[]
+0
+BLOCK: 62
+[]
+[]
+[]
+0
+BLOCK: 63
+[]
+[]
+[]
+0
+BLOCK: 64
+[]
+[]
+[]
+0
+BLOCK: 65
+[]
+[]
+[]
+0
+BLOCK: 66
+[]
+[]
+[]
+0
+BLOCK: 67
+[]
+[]
+[]
+0
+BLOCK: 68
+[]
+[]
+[]
+0
+BLOCK: 69
+[]
+[]
+[]
+0
+BLOCK: 70
+[]
+[]
+[]
+0
+BLOCK: 71
+[]
+[]
+[]
+0
+BLOCK: 72
+[]
+[]
+[]
+0
+BLOCK: 73
+[]
+[]
+[]
+0
+BLOCK: 74
+[]
+[]
+[]
+0
+BLOCK: 75
+[]
+[]
+[]
+0
+BLOCK: 76
+[]
+[]
+[]
+0
+BLOCK: 77
+[]
+[]
+[]
+0
+BLOCK: 78
+[]
+[]
+[]
+0
+BLOCK: 79
+[]
+[]
+[]
+0
+BLOCK: 80
+[]
+[]
+[]
+0
+BLOCK: 81
+[]
+[]
+[]
+0
+BLOCK: 82
+[]
+[]
+[]
+0
+BLOCK: 83
+[]
+[]
+[]
+0
+BLOCK: 84
+[]
+[]
+[]
+0
+BLOCK: 85
+[]
+[]
+[]
+0
+BLOCK: 86
+[]
+[]
+[]
+0
+BLOCK: 87
+[]
+[]
+[]
+0
+BLOCK: 88
+[]
+[]
+[]
+0
+BLOCK: 89
+[]
+[]
+[]
+0
+BLOCK: 90
+[]
+[]
+[]
+0
+BLOCK: 91
+[]
+[]
+[]
+0
+BLOCK: 92
+[]
+[]
+[]
+0
+BLOCK: 93
+[]
+[]
+[]
+0
+BLOCK: 94
+[]
+[]
+[]
+0
+BLOCK: 95
+[]
+[]
+[]
+0
+BLOCK: 96
+[]
+[]
+[]
+0
+BLOCK: 97
+[]
+[]
+[]
+0
+BLOCK: 98
+[]
+[]
+[]
+0
+BLOCK: 99
+[12, 6969]
+[0, 3]
+[0, 0]
+2
