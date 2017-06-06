@@ -25,9 +25,27 @@ def processInode(line):
 	for i in range(12, 24):
 		block_no = int(line[i])
 		inode_no = int(line[1])
-		if block_no < 0 or block_no >= num_blocks:
-			output = "INVALID BLOCK " + `block_no` + " IN INODE " + `inode_no` + " AT OFFSET " + `(i - 12)`
-			print output
+		checkBlock(block_no, inode_no, i, 0)
+
+def checkBlock(block_no, inode_no, logical_offset, indir_level):
+	error_type = "FIXME"
+	error_exists = False
+	if indir_level == 1: 
+		indir_str = " INDIRECT "
+	elif indir_level == 2: 
+		indir_str = " DOUBLE INDIRECT "
+	elif indir_level == 3: 
+		indir_str = " TRIPLE INDIRECT "
+	else:
+		indir_str = " "
+		
+	if block_no < 0 or block_no >= num_blocks:
+		error_type = "INVALID"
+		error_exists = True
+
+	if error_exists:
+		output = error_type + indir_str + "BLOCK " + `block_no` + " IN INODE " + `inode_no` + " AT OFFSET " + `(logical_offset - 12)`
+		print output
 
 def error_message(message, rc):
 	print message
