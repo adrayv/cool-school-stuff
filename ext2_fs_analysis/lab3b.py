@@ -1,9 +1,12 @@
 import sys
 import csv
+import math 
 
 # global variables
 num_blocks = 0
 num_inodes = 0
+block_size = 0
+
 
 def openFile():
 	if len(sys.argv) != 2:
@@ -18,8 +21,10 @@ def openFile():
 def processSuper(line):
 	global num_blocks
 	global num_inodes
+        global block_size
 	num_blocks = int(line[1])
 	num_inodes = int(line[2])
+        block_size = int(line[3])
 
 def processInode(line):
 	for i in range(12, 24):
@@ -42,10 +47,15 @@ def checkBlock(block_no, inode_no, logical_offset, indir_level):
 	if block_no < 0 or block_no >= num_blocks:
 		error_type = "INVALID"
 		error_exists = True
-
+        elif block_no >=0 and block_no <= reserved_limit():
+                error_type = "RESERVED"
+                error_exists = True
 	if error_exists:
 		output = error_type + indir_str + "BLOCK " + `block_no` + " IN INODE " + `inode_no` + " AT OFFSET " + `(logical_offset - 12)`
 		print output
+
+def reserved_limit():
+        return ((1 if block_size == 1024 else 0) + 3 + math.ceil((num_inodes*128.0)/block_size))
 
 def error_message(message, rc):
 	print message
