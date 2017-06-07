@@ -82,16 +82,28 @@ done
 # make sure the README contains name and e-mail
 echo "... checking for submitter info in $README"
 function idString {
-	result=`grep $1 $README | cut -d: -f2 | tr -d \[:blank:\]`
+	result=`grep $1 $README | cut -d: -f2 | tr -d \[:blank:\] | tr -d "\r"`
 	if [ -z "$result" ]
 	then
-		echo "ERROR - no $1 in $README";
+		echo "ERROR - $README contains no $1";
 		let errors+=1
-	elif [ -n "$2" -a "$2" != "$result" ]
+	elif [ -z "$2" ]
 	then
-		echo "        $1 ... $result != $2"
-	else
+		# no match required
 		echo "        $1 ... $result"
+	else
+		f1=`echo $result | cut -f1 -d,`
+		f2=`echo $result | cut -f2 -d,`
+		if [ "$f1" == "$2" ]
+		then
+			echo "        $1 ... $f1"
+		elif [ -n "$f2" -a "$2" == "$f2" ]
+		then
+			echo "        $1 ... $f1,$f2"
+		else
+			echo "ERROR: $1 ($result) does not include $2"
+			let errors+=1
+		fi
 	fi
 }
 
