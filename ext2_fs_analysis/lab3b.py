@@ -60,7 +60,7 @@ def processIndirect(line):
 	level = int(line[2])
 	if block_no != 0 and checkBlock(block_no, inode_no, offset, level):
 		block_attributes[block_no].append_attr(inode_no, offset, level)
-		# ADD BLOCK NO FOR INDRECT REFERENCE
+		block_attributes[block_no].append_attr(
 
 def processDuplicate(block_no):
 	num_refs = block_attributes[block_no].ref_count
