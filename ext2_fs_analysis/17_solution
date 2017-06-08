@@ -1,0 +1,6 @@
+... executing test case P3B-test_17
+cmp: EOF on TEST.out
+        incorrect output for 17.csv
+        YOUR OUTPUT ...
+        EXPECTED OUTPUT ...
+        INODE 17 HAS 0 LINKS BUT LINKCOUNT IS 1

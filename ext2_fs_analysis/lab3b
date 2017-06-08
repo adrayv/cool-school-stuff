@@ -20,14 +20,19 @@ class inode_attr:
 	def __init__(self):
 		self.ref_count = 0
 		self.inodePtrs = []
-		self.mode = -1
-	def searchInodes(target):
+		self.mode = 0
+	def searchInodes(self,target):
 		for i in range(0, len(self.inodePtrs)):
 			if self.inodePtrs[i] == target:
 				return True
 		return False
 	def incr_ref(self):
 		self.ref_count += 1
+	def printInode(self):
+		sys.stdout.write("REF COUNT: " + `self.ref_count` + "\n")
+		print "INODE PTRS:"
+		print self.inodePtrs
+		sys.stdout.write("MODE: " + `self.mode` + "\n\n")
 
 # global variables
 num_blocks = 0
@@ -85,12 +90,11 @@ def processInode(line):
 			(inode_free_list[inode_no -1] == 0 and file_exists(mode)):
 			processAllocInode(inode_no)
 		
-		elif (inode_free_list[inode_no - 1] == 1 and link_count <= 0) or \
+		if (inode_free_list[inode_no - 1] == 1 and link_count <= 0) or \
 			(inode_free_list[inode_no -1] == 1 and file_exists(mode) == False):
 			processUnallocInode(inode_no)
 
-		else: # fill in inode attributes table
-			inode_attributes[inode_no - 1].mode = mode
+		inode_attributes[inode_no - 1].mode = mode
 	else:
 		output = "INVALID INODE " + `inode_no`
 		print output
@@ -182,9 +186,11 @@ def processDirent(line):
 	name = line[6]
 	if inodeIsValid(inode_no, parent_inode, name):
 		inode_attributes[inode_no - 1].incr_ref()
-		inode_attributes[parent_inode - 1].inodePtrs.append(inode_no)
+		if (name != "\'.\'" and name != "\'..\'") or (parent_inode == 2):
+			inode_attributes[parent_inode - 1].inodePtrs.append(inode_no)
 
 def inodeIsValid(inode, parent, name):
+	ret_value = False
 	if (inode >= first_non_res and inode <= num_inodes) or (inode == 2):
 		ret_value = True
 	else:
@@ -233,8 +239,8 @@ def checkInodeLinks(line):
 	inode_no = int(line[1])
 	real_link_count = inode_attributes[inode_no - 1].ref_count
 	if given_link_count != real_link_count:
-		output = "INODE " + `inode_no` + " HAS " + `given_link_count` + \
-		" LINKS BUT LINKCOUNT IS " + `real_link_count`
+		output = "INODE " + `inode_no` + " HAS " + `real_link_count` + \
+		" LINKS BUT LINKCOUNT IS " + `given_link_count`
 		print output
 
 def reserved_limit():
@@ -268,7 +274,10 @@ def main():
 			processIFREE(row)
 		if row[0] == "INDIRECT":
 			processIndirect(row)
-	
+
+	# IMPORTANT resets file to start reading from the top of the file
+	file.seek(0) 	
+
 	# process block duplicates, unreferenced, allocated
 	for i in range(reserved_limit() + 1, num_blocks):
 		if block_attributes[i].ref_count > 1: # more than one reference implies duplicate
@@ -278,15 +287,24 @@ def main():
 		if block_attributes[i].ref_count == 0 and free_list[i] == 1:
 			processUnrefBlock(i)
 
+	# IMPORTANT resets file to start reading from the top of the file
+	file.seek(0) 	
+
 	# process directory entries, and update the reference count per inode
 	for row in csvfile:
 		if row[0] == "DIRENT":
 			processDirent(row)
 
+	# IMPORTANT resets file to start reading from the top of the file
+	file.seek(0) 	
+
 	# directory consistency audit
 	for row in csvfile:
 		if row[0] == "INODE":
 			checkInodeLinks(row)
+
+	# IMPORTANT resets file to start reading from the top of the file
+	file.seek(0) 	
 
 	# checking . and .. consistency
 	for row in csvfile:
@@ -296,7 +314,14 @@ def main():
 			if row[6] == "\'..\'":
 				processDotDot(row)
 	
+	# DEBUGGING TOOLS
 	"""
+	# PRINTS OUT INODE ATTRIBUTES
+	for i in range(0, len(inode_attributes)):
+		sys.stdout.write("INODE NO: " + `i + 1` + "\n")
+		inode_attributes[i].printInode()
+	
+	# PRINTS OUT BLOCK ATTRIBUTES
 	for i in range(0,100):
 		output = "BLOCK: " + `i`
 		print output
@@ -308,6 +333,7 @@ def main():
 		output = "FREELIST AT: " + `i` + " " + `free_list[i]` + "\n"
 		print output
 
+	# PRINTS OUT FREE LIST
 	print inode_free_list
 	"""
 
